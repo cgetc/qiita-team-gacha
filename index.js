@@ -1,7 +1,7 @@
 var http = require('http');
 var config = require(('./config'));
 var Starbucks = require('starbucks-egift-client');
-var twiterBot = Starbucks.client(config['starbucks-egift-client']);
+var twiterBot = Starbucks.twitterBot(config['starbucks-egift-client']);
 
 var Qiita = require('qiita-js');
 Qiita.setToken(config.qiita.access_token);
