@@ -33,7 +33,7 @@ http.createServer(function (req, res) {
     });
 }).listen(config.port);
 
-console.log('Server running at http://127.0.0.1:' + port + '/');
+console.log('Server running at http://127.0.0.1:' + config.port + '/');
 
 function gacha (user) {
     var seed = Math.floor(config.hit * Math.random());
