@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/cgetc/qiita-team-gacha",
   "dependencies": {
+    "qiita-js": "^0.1.0",
     "starbucks-egift-client": "*"
   }
 }
