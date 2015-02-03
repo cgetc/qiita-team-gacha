@@ -15,13 +15,14 @@ http.createServer(function (req, res) {
     });
 
     req.on('end', function() {
-    var payload = JSON.parse(body);
-    console.log(payload.model + ' ' + payload.action + ' ' + payload.item.uuid);
-    if (payload.action === 'created') {
-        switch (payload.model) {
-        case 'item':
-            send(payload.item.user.url_name);
-            break;
+        var payload = JSON.parse(body);
+        console.log(payload.model + ' ' + payload.action + ' ' + payload.item.uuid);
+        if (payload.action === 'created') {
+            switch (payload.model) {
+            case 'item':
+                send(payload.item.user.url_name);
+                break;
+            }
         }
         res.writeHead(200, {'Content-Type': 'text/plain'});
         res.write('Success\n');
@@ -31,7 +32,7 @@ http.createServer(function (req, res) {
 
 console.log('Server running at http://127.0.0.1:' + config.port + '/');
 
-var hit = new Function('"' + config.hit.var + '"', '"return ' + config.hit.eval + '"');
+var hit = new Function('"' + config.hit['var'] + '"', '"return ' + config.hit.eval + '"');
 function send (user_id) {
     Qiita.Resources.User.get_user(user_id).then(function (user) {
         if (!hit(user)) return;
