@@ -20,12 +20,8 @@ http.createServer(function (req, res) {
     if (payload.action === 'created') {
         switch (payload.model) {
         case 'item':
-                send(payload.item.user.url_name);
-                break;
-            case 'comment':
-                send(payload.comment.user.url_name);
-                break;
-            }
+            send(payload.item.user.url_name);
+            break;
         }
         res.writeHead(200, {'Content-Type': 'text/plain'});
         res.write('Success\n');
