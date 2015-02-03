@@ -35,7 +35,7 @@ http.createServer(function (req, res) {
 
 console.log('Server running at http://127.0.0.1:' + config.port + '/');
 
-var hit = new Function(config.hit.var, 'return ' + config.hit.eval);
+var hit = new Function('"' + config.hit.var + '"', '"return ' + config.hit.eval + '"');
 function send (user_id) {
     Qiita.Resources.User.get_user(user_id).then(function (user) {
         if (!hit(user)) return;
