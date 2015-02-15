@@ -39,10 +39,14 @@ function send (user_id) {
         if (!hit(user)) return;
         if (user.twitter_screen_name) {
             console.log('send to ' + user.id + '.');
+            var setting = {
+                'to': user.twitter_screen_name,
+                'message': message()
+            };
             var form = Object.extend(config.form, {
                 card_message: message()
             });
-            client.gift(user.twitter_screen_name, message(), form);
+            client.gift(setting, form);
         } else {
             console.log('no twitter id(' + user.id + ')');
         }
