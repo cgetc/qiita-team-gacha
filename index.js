@@ -1,7 +1,8 @@
 var http = require('http');
 var config = require('./config');
-var Starbucks = require('starbucks-egift-client');
-var twiterBot = Starbucks.twitterBot(config['starbucks-egift-client']);
+var Starbucks = require('starbucks-egift-client').client(config['starbucks-egift-client']);
+var twitter_auth = require('./twitter_auth');
+var client = require('./send-factory/TwitterSendFacotry').client(Starbucks, twitter_auth);
 
 var Qiita = require('qiita-js');
 Qiita.setToken(config.qiita.access_token);
@@ -38,7 +39,10 @@ function send (user_id) {
         if (!hit(user)) return;
         if (user.twitter_screen_name) {
             console.log('send to ' + user.id + '.');
-            twiterBot.gift(user.twitter_screen_name, message(), message());
+            var form = Object.extend(config.form, {
+                card_message: message()
+            });
+            client.gift(user.twitter_screen_name, message(), form);
         } else {
             console.log('no twitter id(' + user.id + ')');
         }

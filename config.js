@@ -13,22 +13,15 @@ module.exports = {
         'お疲れ様。頑張ってるあなたへ私からプ・レ・ゼ・ン・ト♥',
         'あなたのその優しさに助けられてる人がたくさんいるわ、ありがとう♥'
     ],
+    form: {
+        mail_address: '決済通知用のメールアドレス',
+        credit_number: 'クレジットカード番号',
+        credit_month: 'クレジットカードの有効期限(月)',
+        credit_year: 'クレジットカードの有効期限(年)'
+    },
     'starbucks-egift-client': {/* Starbucks-eGift-Clientの設定 */
-        webdriver: {
-            remote_url: 'Selenium-RCを使用する場合はURLを指定(任意）',
-            capability: 'chromeもしくはfirefoxを指定'
-        },
-        twitter: {
-            username: 'twitterのID',
-            password: 'twitterのパスワード'
-        },
-        starbucks: {
-            mail_address: '決済通知用のメールアドレス',
-            credit: {
-                numbers: 'クレジットカード番号',
-                month: 'クレジットカードの有効期限(月)',
-                year: 'クレジットカードの有効期限(年)'
-            }
-        }
+        site_url: 'https://gift.starbucks.co.jp/card/',
+        remote_url: 'Selenium-RCを使用する場合はURLを指定(任意）',
+        capability: 'chromeもしくはfirefoxを指定'
     }
 }
