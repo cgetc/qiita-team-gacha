@@ -42,4 +42,4 @@ function message() {
     return mess[i];
 }
 
-send('cgetc');
+send('QiitaのユーザID');
