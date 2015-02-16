@@ -1,5 +1,5 @@
 module.exports = {/* node-mailerの設定 */
-    service: "",
+    service: "sendmail",
     auth: {
         user: "",
         pass: ""

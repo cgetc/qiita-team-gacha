@@ -27,6 +27,11 @@
   "dependencies": {
     "nodemailer": "^1.3.0",
     "qiita-js": "^0.1.0",
+    "sendmail": "^0.2.1",
     "starbucks-egift-client": "*"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "node-http-server": "^2.0.0"
   }
 }
