@@ -2,7 +2,7 @@ var http = require('http');
 var config = require('./config');
 var Starbucks = require('starbucks-egift-client').client(config['starbucks-egift-client']);
 var twitter_auth = require('./twitter_auth');
-var client = require('./send-factory/TwitterSendFacotry').client(Starbucks, twitter_auth);
+var client = require('./send-factory/TwitterSendFactory').client(Starbucks, twitter_auth);
 
 var Qiita = require('qiita-js');
 Qiita.setToken(config.qiita.access_token);
@@ -43,7 +43,7 @@ function send (user_id) {
                 'to': user.twitter_screen_name,
                 'message': message()
             };
-            var form = Object.extend(config.form, {
+            var form = Object.create(config.form, {
                 card_message: message()
             });
             client.gift(setting, form);
