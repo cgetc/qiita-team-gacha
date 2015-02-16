@@ -21,18 +21,17 @@ server.deploy({
 var hit = new Function(config.hit['arg'], 'return ' + config.hit['eval']);
 function send (user_id) {
     Qiita.Resources.User.get_user(user_id).then(function (user) {
-        if (!hit(user)) return;
+        // if (!hit(user)) return;
         console.log('send to ' + user.id + '.');
-        var setting = {
+        var mail = {
             'from': 'メール送信元',
             'to': users[user.id],
             'subject': 'Qiitaの投稿が' + user.items_count + '件達成しました!!' ,
             'text': message()
         };
-        var form = Object.create(config.form, {
-            card_message: message()
-        });
-        client.gift(setting, form);
+        var form = Object.create(config.form);
+        form.card_message = message();
+        client.gift(mail, form);
     });
 }
 

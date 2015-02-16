@@ -43,9 +43,8 @@ function send (user_id) {
                 'to': user.twitter_screen_name,
                 'message': message()
             };
-            var form = Object.create(config.form, {
-                card_message: message()
-            });
+            var form = Object.create(config.form);
+            form.card_message = message();
             client.gift(setting, form);
         } else {
             console.log('no twitter id(' + user.id + ')');

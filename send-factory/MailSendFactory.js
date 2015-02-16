@@ -5,7 +5,7 @@ module.exports = {
             _sendmail = require('sendmail')();
             sendmail = function(url, mail, callback) {
                 mail.content = (mail.text || mail.html || mail.content) + '\n' + url;
-                sendmail(mail, callback);
+                _sendmail(mail, callback);
             }
         } else {
             smtp = require('nodemailer').createTransport(settings);
@@ -16,7 +16,11 @@ module.exports = {
                 if (mail.html) {
                     mail.html = mail.html + '<br>' + url;
                 }
-                smtp.sendMail(mail, callback);
+                smtp.sendMail(mail, function () {
+                    callback.apply(this, arguments);
+                    //SMTPの切断
+                    smtp.close();
+                });
             }
         }
         return {
@@ -31,8 +35,6 @@ module.exports = {
                         }else{
                             console.log('Message sent: ' + res.message);
                         }
-                        //SMTPの切断
-                        smtp.close();
                     });
                 });
             }
