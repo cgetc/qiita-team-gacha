@@ -4,7 +4,7 @@
   "description": "sample program for Starbucks eGift Client.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha && node test/mail && exit 1"
   },
   "repository": {
     "type": "git",

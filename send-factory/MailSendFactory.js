@@ -1,7 +1,7 @@
 module.exports = {
     client: function (Starbucks, settings) {
         var sendmail, _sendmail, smtp;
-        if (settings.service == 'sendmail') {
+        if (settings.service === 'sendmail') {
             _sendmail = require('sendmail')();
             sendmail = function(url, mail, callback) {
                 mail.content = (mail.text || mail.html || mail.content) + '\n' + url;
