@@ -1,5 +1,5 @@
 {
-  "name": "qiita-team-gacha",
+  "name": "qiita-team-prize",
   "version": "0.0.2",
   "description": "sample program for Starbucks eGift Client.",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cgetc/qiita-team-gacha.git"
+    "url": "https://github.com/cgetc/qiita-team-prize.git"
   },
   "keywords": [
     "qiita",
@@ -21,9 +21,9 @@
   "author": "cgetc",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cgetc/qiita-team-gacha/issues"
+    "url": "https://github.com/cgetc/qiita-team-prize/issues"
   },
-  "homepage": "https://github.com/cgetc/qiita-team-gacha",
+  "homepage": "https://github.com/cgetc/qiita-team-prize",
   "dependencies": {
     "nodemailer": "^1.3.0",
     "qiita-js": "^0.1.0",
